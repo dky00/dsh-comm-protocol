@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "title": { "en": "dsh-comm-protocol", "zh": "沟通协议" },
+  "plugins": [{
+    "name": "dsh-comm-protocol",
+    "title": { "en": "Communication Protocol", "zh": "沟通协议" },
+    "author": "dky00",
+    "homepage": "https://github.com/dky00/dsh-comm-protocol#readme",
+    "repository": { "url": "https://github.com/dky00/dsh-comm-protocol" },
+    "versions": [{
+      "version": "0.1.0",
+      "publishTimestamp": 1793610160,
+      "source": {
+        "type": "git",
+        "url": "https://github.com/dky00/dsh-comm-protocol",
+        "commit": "117c9d17256e3160af580185cee84f11a148e0fb"
+      }
+    }]
+  }]
+}
