@@ -1,0 +1,8 @@
+# dsh-comm-protocol bundle patch: insert the host-only plugin row into the
+# profile roster. The node half (exports ".") registers a dynamic
+# `systemPrompt.section` and a status/switch route.
+#
+# This package has no browser half, so there is no `dsh.client` declaration.
+- insert:
+    - id: comm-protocol
+      name: 'dsh-comm-protocol'
