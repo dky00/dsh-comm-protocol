@@ -1,0 +1,35 @@
+{
+  "name": "dsh-comm-protocol",
+  "version": "0.1.0",
+  "description": "Injects a versioned communication-protocol document into the DSH system prompt, with a live on/off switch and a status surface.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./protocol": "./protocol/PROTOCOL.md",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "index.js",
+    "protocol",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "system-prompt",
+    "protocol"
+  ],
+  "license": "MIT"
+}
