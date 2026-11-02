@@ -52,16 +52,32 @@
 
 ## 怎么安装
 
-```powershell
-dsh plugin --profile web add github:dky00/dsh-comm-protocol
+### 一、从插件市场装（推荐，桌面版也能用）
+
+1. 打开 **插件** 页，点「实验性插件」旁边的**更多**，把**自定义插件市场**打开
+2. 回到插件页，进**发现**标签，点**添加索引源**，填入：
+
+```
+https://dky00.github.io/dsh-comm-protocol/market/index.json
 ```
 
-然后**重启 DSH**。首次加载会自动创建配置并开启，不需要手写任何文件。
+3. 找到「沟通协议」，点安装。确认框里会显示来源：Git 仓库和一个 commit——**核对一眼**，那就是会装进你机器上的代码
+4. 重启 DSH
 
-卸载：
+### 二、命令行（只对 `web` 这类能被 CLI 管理的 profile 有效）
 
 ```powershell
-dsh plugin --profile web remove dsh-comm-protocol
+dsh plugin --profile web add git+https://github.com/dky00/dsh-comm-protocol.git#117c9d17256e3160af580185cee84f11a148e0fb
 ```
 
-> **桌面版（Electron）用不了这条命令。** 它的 `desktop` profile 被应用独占管理，CLI 会拒绝。要装在桌面版上，得手工登记：把包链接进 `profiles/desktop/node_modules/`，再在 `profiles/desktop/package.json` 的 `dependencies` 和 `dsh.profile.bundles` 里各加一条，然后重启。
+带上完整 commit 是为了装到的代码和索引里钉的完全一致。省略它写成 `github:dky00/dsh-comm-protocol` 也能装，但那拿的是默认分支的最新提交——别人装到的可能就不是你试过的那份了。
+
+`--profile desktop` 会被拒绝（桌面版 profile 由应用独占管理），桌面版请走市场。
+
+卸载：`dsh plugin --profile web remove dsh-comm-protocol`
+
+### 装完之后
+
+**重启 DSH**。首次加载会自动创建配置并开启，不需要手写任何文件。新会话的第一条回复开头会出现一个带版本和档位的标记，看到它就说明生效了。
+
+如果一直等不到那个标记，看 `~/.dsh/comm-protocol/status.json`——它是每轮装配后重写的，里面写着当前状态和实际注入的字符数。
